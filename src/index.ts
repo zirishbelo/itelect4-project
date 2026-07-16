@@ -1,6 +1,60 @@
-import type { User, Course, Submission } from "../types/index";
 // ===== TYPE NARROWING =====
+import { RSVPStatus } from "../types/index";
 import type { StringOrNumber } from "../types/index";
+import type {
+    User,
+    Event,
+    RSVP,
+    ApiResponse,
+    UserUpdate,
+    UserPreview
+} from "../types/index";
+
+const student: User = {
+    id: "USER-001",
+    name: "Zurinee Belo",
+    email: "zurinee@gmail.com",
+    role: "attendee",
+    isActive: true,
+}
+
+const event: Event = {
+    id: "EVENT-001",
+    title: "Tech Conference 2026",
+    venue: "Mabini Auditorium",
+    date: new Date("2026-07-16"),
+};
+
+const rsvp: RSVP = {
+    id: "RSVP-001",
+    userId: "USER-001",
+    eventId: "EVENT-001",
+    status: RSVPStatus.Pending,
+    submittedAt: new Date(),
+}
+
+function getFirst<T>(items: T[]): T | undefined {
+    return items[0];
+}
+
+const userResponse: ApiResponse<User> = {
+    success: true,
+    data: student,
+};
+
+const patch: UserUpdate = {
+    name: "Zurinee Belo",
+};
+
+const preview: UserPreview = {
+    id: "USER-001",
+    name: "Zurinee Belo",
+    role: "attendee",
+};
+
+let status = RSVPStatus.Pending;
+
+/*
 // Narrowing with typeof
 // ===== PRIMITIVE TYPE ANNOTATIONS =====
 // Variables with explicit types
@@ -72,4 +126,5 @@ return value; // TypeScript knows: it's a string
 }
 console.log(processInput("hello")); // HELLO
 console.log(processInput(3.14159)); // 3.14
-console.log(formatDate(new Date())); // e.g. 7/4/2026
+console.log(formatDate(new Date())); // e.g. 7/4/2026       
+*/

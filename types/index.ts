@@ -1,26 +1,56 @@
 // ===== INTERFACES =====
 // An interface defines the SHAPE of an object -- what fields it must have.
+
+export type StringOrNumber = string | number;
+
 export interface User {
-    id: number;
+    id: string | number;
     name: string;
     email: string;
-    role: "student" | "admin" | "instructor"; // only these values
+    role: "attendee" | "organizer",
     isActive: boolean;
 }
-export interface Course {
-    code: string;
+
+export interface Event {
+    id: string | number;
     title: string;
-    units: number;
-    semester: string;
+    venue: string;
+    date: Date;
 }
-export interface Submission {
-    id: number;
-    studentId: number;
-    courseCode: string;
-    repoUrl: string;
+export interface RSVP {
+    id: number | string;
+    userId: number | string;
+    eventId: number | string;
+    status: RSVPStatus;
     submittedAt: Date;
-    score?: number; // ? means this field is optional
 }
+
+export interface ApiResponse<T> {
+    success: boolean;
+    data: T;
+    message?: string;
+}
+
+export type UserUpdate = Partial<User>;
+export type UserPreview = Pick<User, "id" | "name" | "role">;
+
+const patch: UserUpdate = {
+    name: "Zurinee Belo"
+};
+
+const preview: UserPreview = {
+    id: 1,
+    name: "Zurinee Belo",
+    role: "attendee"
+};
+
+export enum RSVPStatus {
+    Pending,
+    Confirmed,
+    Waitlisted
+}
+
+/*
 
 // ===== TYPE ALIASES =====
 // A type alias gives a name to any type -- primitives, unions, functions, objects
@@ -44,7 +74,6 @@ console.log(studentId); // S2026-001
 console.log(formatScore(95.5)); // 95.5%
 
 // ===== UNION TYPES -- One OR the other =====
-export type StringOrNumber = string | number;
 export type Status = "pending" | "active" | "inactive"; // literal union
 
 // Function that accepts a union type
@@ -67,3 +96,5 @@ role: "student", isActive: true,
 enrolledCourse: { code: "ITELECT4", title: "IT Elective 4", units: 3, semester: "1st" },
 gpa: 1.25,
 };
+
+*/
