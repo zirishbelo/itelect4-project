@@ -1,6 +1,5 @@
 // ===== TYPE NARROWING =====
-import { RSVPStatus } from "../types/index";
-import type { StringOrNumber } from "../types/index";
+import { RSVPStatus } from "./types/index";
 import type {
     User,
     Event,
@@ -8,7 +7,7 @@ import type {
     ApiResponse,
     UserUpdate,
     UserPreview
-} from "../types/index";
+} from "./types/index";
 
 const student: User = {
     id: "USER-001",
@@ -29,7 +28,7 @@ const rsvp: RSVP = {
     id: "RSVP-001",
     userId: "USER-001",
     eventId: "EVENT-001",
-    status: RSVPStatus.Pending,
+    status: "pending",
     submittedAt: new Date(),
 }
 
@@ -52,7 +51,7 @@ const preview: UserPreview = {
     role: "attendee",
 };
 
-let status = RSVPStatus.Pending;
+let status = "pending";
 
 /*
 // Narrowing with typeof
