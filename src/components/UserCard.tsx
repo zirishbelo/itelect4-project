@@ -11,16 +11,17 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     onSelect(user);
   };
  
-  // Demo only -- shows the typed onChange pattern, not wired to real state
+/*  // Demo only -- shows the typed onChange pattern, not wired to real state
  const handleNoteChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     console.log("Note:", e.target.value);
-  };
+  };*/
 
   return (
     <div className="user-card">
       <h3>{user.name}</h3>
       <p>{user.email}</p>
       <p>Role: {user.role}</p>
+      <button onClick={handleClick}>Show Student Details</button>
     </div>
   );
 }
