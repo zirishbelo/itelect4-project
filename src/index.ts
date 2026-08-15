@@ -1,12 +1,8 @@
 // ===== TYPE NARROWING =====
-import { RSVPStatus } from "./types/index";
 import type {
     User,
     Event,
     RSVP,
-    ApiResponse,
-    UserUpdate,
-    UserPreview
 } from "./types/index";
 
 const student: User = {
@@ -32,7 +28,11 @@ const rsvp: RSVP = {
     submittedAt: new Date(),
 }
 
-function getFirst<T>(items: T[]): T | undefined {
+console.log(student);
+console.log(event);
+console.log(rsvp);
+
+/* function getFirst<T>(items: T[]): T | undefined {
     return items[0];
 }
 

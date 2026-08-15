@@ -34,16 +34,6 @@ export interface ApiResponse<T> {
 export type UserUpdate = Partial<User>;
 export type UserPreview = Pick<User, "id" | "name" | "role">;
 
-const patch: UserUpdate = {
-    name: "Zurinee Belo"
-};
-
-const preview: UserPreview = {
-    id: 1,
-    name: "Zurinee Belo",
-    role: "attendee"
-};
-
 export enum RSVPStatus {
     Pending,
     Confirmed,
