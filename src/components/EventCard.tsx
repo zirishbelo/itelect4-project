@@ -13,7 +13,7 @@ shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <h3 className="text-lg font-bold text-gray-900 dark:text-white">{event.title}</h3>
       {!isCompact && ( 
       <p className="text-gray-600 dark:text-gray-300">{event.venue}</p> )}
-      <p className="text-sm text-gray-500 dark:text-gray-400">{event.date.toLocaleDateString()}</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400">{event.date.toString()}</p>
     </div>
   );
 }
