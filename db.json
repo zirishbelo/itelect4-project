@@ -1,0 +1,46 @@
+{
+    "events": [
+        {
+        "id": "EVENT-001",
+        "title": "Tech Conference 2026",
+        "venue": "Mabini Auditorium",
+        "date": "2026-07-18"
+        },
+        {
+        "id": "EVENT-003",
+        "title": "Org Seminar",
+        "venue": "Diokno Auditorium",
+        "date": "2027-07-19"
+        },
+        {
+        "id": "EVENT-004",
+        "title": "Career Talk",
+        "venue": "CBEAM Auditorium",
+        "date": "2027-07-20"
+        }
+    ],
+
+    "rsvps": [
+        {
+        "id": "RSVP-001",
+        "userId": "USER-001",
+        "eventTitle": "Tech Conference 2026",
+        "status": "pending",
+        "submittedAt": "2026-06-15T14:30:00"
+        },
+        {
+        "id": "RSVP-002",
+        "userId": "USER-001",
+        "eventTitle": "Org Seminar",
+        "status": "confirmed",
+        "submittedAt": "2026-06-16T10:15:00"
+        },
+        {
+        "id": "RSVP-003",
+        "userId": "USER-003",
+        "eventTitle": "Career Talk",
+        "status": "waitlisted",
+        "submittedAt": "2026-06-17T09:45:00"
+        }
+    ]
+}
