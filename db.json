@@ -30,7 +30,7 @@
         },
         {
         "id": "RSVP-002",
-        "userId": "USER-001",
+        "userId": "USER-002",
         "eventTitle": "Org Seminar",
         "status": "confirmed",
         "submittedAt": "2026-06-16T10:15:00"

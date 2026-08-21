@@ -17,15 +17,15 @@ const event: Event = {
     id: "EVENT-001",
     title: "Tech Conference 2026",
     venue: "Mabini Auditorium",
-    date: new Date("2026-07-16"),
+    date: new Date( "2026-08-01T09:00:00.000Z"),
 };
 
 const rsvp: RSVP = {
     id: "RSVP-001",
     userId: "USER-001",
-    eventId: "EVENT-001",
+    eventTitle: "Tech Conference 2026",
     status: "pending",
-    submittedAt: new Date(),
+    submittedAt: new Date( "2026-08-02T09:00:00.000Z"),
 }
 
 console.log(student);

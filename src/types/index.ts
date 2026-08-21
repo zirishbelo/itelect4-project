@@ -20,7 +20,7 @@ export interface Event {
 export interface RSVP {
     id: number | string;
     userId: number | string;
-    eventId: number | string;
+    eventTitle: string;
     status: "pending" | "confirmed" | "waitlisted";
     submittedAt: Date;
 }
@@ -33,6 +33,12 @@ export interface ApiResponse<T> {
 
 export type UserUpdate = Partial<User>;
 export type UserPreview = Pick<User, "id" | "name" | "role">;
+export type ApiRSVP = Omit<RSVP, "id" | "submittedAt"> & {
+    id: string;
+    submittedAt: string;
+};
+
+export type NewRSVP = Omit<ApiRSVP, "id">;
 
 export enum RSVPStatus {
     Pending,
