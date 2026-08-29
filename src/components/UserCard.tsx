@@ -19,7 +19,7 @@ shadow-sm dark:bg-gray-800 dark:border-gray-700">
       <p className="text-sm text-gray-500 dark:text-gray-400">Role: {user.role}</p>
       <button className="mt-3 rounded bg-blue-600 px-3 py-1.5 text-sm
 font-semibold text-white transition hover:bg-blue-700" onClick={handleClick}>
-        Show Student Details
+        Show Attendee Details
       </button>
     </div>
   );

@@ -1,14 +1,31 @@
-import { useState } from "react";
 import { useQuery, useMutation, useQueryClient }
     from "@tanstack/react-query";
 import type { ApiRSVP } from "../types/index";
 import RSVPBadge from "../components/RSVPBadge";
 import { fetchRSVP, createRSVP } from "../api/client";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { rsvpSchema } from "../schemas/rsvpSchema";
+import type { RSVPFormValues } from "../schemas/rsvpSchema";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 
 function RSVPPage() {
-    // Local, because only this one form reads it. Not store material.
-    const [status, setStatus] = useState<string>("");
     const queryClient = useQueryClient();
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm<RSVPFormValues>({
+        resolver: zodResolver(rsvpSchema),
+        mode: "onBlur",
+        defaultValues: {
+            eventTitle: "",
+        },
+    });
 
     const { data, isPending, isError } = useQuery<ApiRSVP[]>({
         queryKey: ["RSVP"],
@@ -18,18 +35,17 @@ function RSVPPage() {
     const addRSVP = useMutation({
         mutationFn: createRSVP,
         onSuccess: () => {
-            // "the submissions list is out of date now -- go and refetch it"
             queryClient.invalidateQueries({ queryKey: ["RSVP"] });
-            setStatus("");
+            reset();
         },
     });
 
-    const handleAdd = (): void => {
+    const onSubmit = (values: RSVPFormValues): void => {
         addRSVP.mutate({
             userId: "USER-001",
-            eventTitle: "GAAP 2026",
-            status: "pending",
-            submittedAt:  new Date().toISOString(),
+            eventTitle: values.eventTitle,
+            status: values.status,
+            submittedAt: new Date().toISOString(),
         });
     };
 
@@ -48,25 +64,67 @@ function RSVPPage() {
         <div>
             <h2 className="mb-4 text-2xl font-bold text-gray-900
 dark:text-white">My RSVPs</h2>
-            <div className="mb-6 flex gap-2">
-                <input value={status}
-                    onChange={(r) => setStatus(r.target.value)}
-                    placeholder="Status"
-                    className="w-full rounded border border-gray-300 p-2" />
-                <button onClick={handleAdd}
-                    disabled={status === "" || addRSVP.isPending}
-                    className="rounded bg-blue-600 px-3 py-1.5 text-sm font-semibold
-text-white transition hover:bg-blue-700 disabled:bg-gray-400">
-                    {addRSVP.isPending ? "Saving..." : "Add"}
-                </button>
-            </div>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="mb-6 max-w-md space-y-4"
+            >
+                <div className="space-y-2">
+                    <Label htmlFor="eventTitle">
+                        Event
+                    </Label>
+
+
+                    <Input
+                        id="eventTitle"
+                        {...register("eventTitle")}
+                        aria-invalid={errors.eventTitle ? true : undefined}
+                        placeholder="Enter event name"
+                    />
+
+                    {errors.eventTitle && (
+                        <p className="text-sm text-red-600">
+                            {errors.eventTitle.message}
+                        </p>
+                    )}
+                </div>
+                <div className="space-y-2">
+                    <Label htmlFor="status">
+                        RSVP Status
+                    </Label>
+
+                    <select
+                        id="status"
+                        {...register("status")}
+                        className="w-full rounded-md border border-gray-300 bg-white p-2
+        dark:border-gray-700 dark:bg-gray-800"
+                        aria-invalid={errors.status ? true : undefined}
+                    >
+                        <option value="">Select RSVP status...</option>
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="waitlisted">Waitlisted</option>
+                    </select>
+
+                    {errors.status && (
+                        <p className="text-sm text-red-600">
+                            {errors.status.message}
+                        </p>
+                    )}
+                </div>
+                <Button
+                    type="submit"
+                    disabled={addRSVP.isPending}
+                >
+                    {addRSVP.isPending ? "Saving..." : "Add RSVP"}
+                </Button>
+            </form>
             {addRSVP.isError && (
                 <p className="mb-4 text-sm text-red-700">
                     {addRSVP.error.message}</p>
             )}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {data.map((r) => (
-                    <RSVPBadge key={r.userId} rsvp={r}>
+                    <RSVPBadge key={r.id} rsvp={r}>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
                             Event: {r.eventTitle}</p>
                     </RSVPBadge>

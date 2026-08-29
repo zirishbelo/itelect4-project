@@ -1,46 +1,88 @@
 {
-    "events": [
-        {
-        "id": "EVENT-001",
-        "title": "Tech Conference 2026",
-        "venue": "Mabini Auditorium",
-        "date": "2026-07-18"
-        },
-        {
-        "id": "EVENT-003",
-        "title": "Org Seminar",
-        "venue": "Diokno Auditorium",
-        "date": "2027-07-19"
-        },
-        {
-        "id": "EVENT-004",
-        "title": "Career Talk",
-        "venue": "CBEAM Auditorium",
-        "date": "2027-07-20"
-        }
-    ],
-
-    "rsvps": [
-        {
-        "id": "RSVP-001",
-        "userId": "USER-001",
-        "eventTitle": "Tech Conference 2026",
-        "status": "pending",
-        "submittedAt": "2026-06-15T14:30:00"
-        },
-        {
-        "id": "RSVP-002",
-        "userId": "USER-002",
-        "eventTitle": "Org Seminar",
-        "status": "confirmed",
-        "submittedAt": "2026-06-16T10:15:00"
-        },
-        {
-        "id": "RSVP-003",
-        "userId": "USER-003",
-        "eventTitle": "Career Talk",
-        "status": "waitlisted",
-        "submittedAt": "2026-06-17T09:45:00"
-        }
-    ]
+  "events": [
+    {
+      "id": "EVENT-001",
+      "title": "Tech Conference 2026",
+      "venue": "Mabini Auditorium",
+      "date": "2026-07-18"
+    },
+    {
+      "id": "EVENT-003",
+      "title": "Org Seminar",
+      "venue": "Diokno Auditorium",
+      "date": "2027-07-19"
+    },
+    {
+      "id": "EVENT-004",
+      "title": "Career Talk",
+      "venue": "CBEAM Auditorium",
+      "date": "2027-07-20"
+    }
+  ],
+  "rsvps": [
+    {
+      "id": "RSVP-001",
+      "userId": "USER-001",
+      "eventTitle": "Tech Conference 2026",
+      "status": "pending",
+      "submittedAt": "2026-06-15T14:30:00"
+    },
+    {
+      "id": "RSVP-002",
+      "userId": "USER-002",
+      "eventTitle": "Org Seminar",
+      "status": "confirmed",
+      "submittedAt": "2026-06-16T10:15:00"
+    },
+    {
+      "id": "RSVP-003",
+      "userId": "USER-003",
+      "eventTitle": "Career Talk",
+      "status": "waitlisted",
+      "submittedAt": "2026-06-17T09:45:00"
+    },
+    {
+      "userId": "USER-001",
+      "eventTitle": "GAAP 2026",
+      "status": "pending",
+      "submittedAt": "2026-08-28T10:57:57.693Z",
+      "id": "QQcJMsn2mBw"
+    },
+    {
+      "userId": "USER-001",
+      "eventTitle": "GAAP 2026",
+      "status": "pending",
+      "submittedAt": "2026-08-29T10:10:25.957Z",
+      "id": "0h3VeJWc3h0"
+    },
+    {
+      "userId": "USER-001",
+      "eventTitle": "GAAP 2026",
+      "status": "pending",
+      "submittedAt": "2026-08-29T10:10:33.368Z",
+      "id": "-86q0Q4CRkw"
+    },
+    {
+      "userId": "USER-001",
+      "eventTitle": "GAAP 2026",
+      "status": "pending",
+      "submittedAt": "2026-08-29T10:14:40.090Z",
+      "id": "0lvtXW8Rmj4"
+    },
+    {
+      "userId": "USER-001",
+      "eventTitle": "Tech Conference 2026",
+      "status": "pending",
+      "submittedAt": "2026-08-29T15:02:52.762Z",
+      "id": "KncApktIB6s"
+    },
+    {
+      "userId": "USER-001",
+      "eventTitle": "JPCS Night",
+      "status": "confirmed",
+      "submittedAt": "2026-08-29T15:09:32.846Z",
+      "id": "5TK4b8C-E8Q"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
