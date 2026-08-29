@@ -41,9 +41,9 @@ export type ApiRSVP = Omit<RSVP, "id" | "submittedAt"> & {
 export type NewRSVP = Omit<ApiRSVP, "id">;
 
 export enum RSVPStatus {
-    Pending,
-    Confirmed,
-    Waitlisted
+    Pending = "pending",
+    Confirmed = "confirmed",
+    Waitlisted = "waitlisted",
 }
 
 /*
