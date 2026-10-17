@@ -34,7 +34,12 @@ function Layout() {
                         RSVPs
                     </NavLink>
                     {userName === null ? (
-                        <NavLink to="/login" className={linkClass}>Login</NavLink>
+                        <>
+                            <NavLink to="/login" className={linkClass}>Login</NavLink>
+                            <NavLink to="/register" className={linkClass}>
+                                Register
+                            </NavLink>
+                        </>
                     ) : (
                         <button onClick={logout}
                             className="rounded px-3 py-1.5 text-sm text-gray-700 dark:text-gray-300">
