@@ -33,12 +33,22 @@ export interface ApiResponse<T> {
 
 export type UserUpdate = Partial<User>;
 export type UserPreview = Pick<User, "id" | "name" | "role">;
-export type ApiRSVP = Omit<RSVP, "id" | "submittedAt"> & {
+export type ApiRSVP = Omit<RSVP, "id" | "userId" | "submittedAt"> & {
     id: string;
+    userId: string;
     submittedAt: string;
 };
 
-export type NewRSVP = Omit<ApiRSVP, "id">;
+export type NewRSVP = Pick<RSVP, "eventTitle" | "status">;
+
+export type ApiUser = Omit<User, "id"> & {
+    id: string;
+};
+
+export interface AuthReply {
+    token: string;
+    user: ApiUser;
+}
 
 export enum RSVPStatus {
     Pending = "pending",

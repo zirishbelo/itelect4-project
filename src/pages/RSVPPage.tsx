@@ -28,24 +28,22 @@ function RSVPPage() {
     });
 
     const { data, isPending, isError } = useQuery<ApiRSVP[]>({
-        queryKey: ["RSVP"],
+        queryKey: ["rsvps"],
         queryFn: fetchRSVP,
     });
 
     const addRSVP = useMutation({
         mutationFn: createRSVP,
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["RSVP"] });
+            queryClient.invalidateQueries({ queryKey: ["rsvps"] });
             reset();
         },
     });
 
     const onSubmit = (values: RSVPFormValues): void => {
         addRSVP.mutate({
-            userId: "USER-001",
             eventTitle: values.eventTitle,
             status: values.status,
-            submittedAt: new Date().toISOString(),
         });
     };
 

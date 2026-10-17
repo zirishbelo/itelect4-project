@@ -5,6 +5,7 @@ import DashboardPage from "./pages/DashboardPage";
 import EventsPage from "./pages/EventsPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import RSVPPage from "./pages/RSVPPage";
 import NotFoundPage from "./pages/NotFoundPage";
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="events" element={<EventsPage />} />
         <Route path="events/:title" element={<EventDetailPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
         <Route element={<ProtectedRoute />}> {/* <-- the guard */}
           <Route path="rsvps" element={<RSVPPage />} />
         </Route>

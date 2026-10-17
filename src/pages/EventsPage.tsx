@@ -4,7 +4,7 @@ import type { Event } from "../types/index";
 import EventCard from "../components/EventCard";
 import usePrevious from "../hooks/usePrevious";
 import useUiStore from "../store/uiStore";
-import { fetchEvents } from "../api/client";
+import { API_URL, fetchEvents } from "../api/client";
 
 function EventsPage() {
     const { data, isPending, isError, error } = useQuery<Event[]>({
@@ -23,7 +23,7 @@ function EventsPage() {
     if (isError) {
         return (
             <div className="rounded-lg bg-red-50 p-4 text-red-700">
-                {error.message} -- is json-server running on port 3001?
+                {error.message} -- tried {API_URL}/api/events
             </div>
         );
     }
