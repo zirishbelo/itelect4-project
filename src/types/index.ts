@@ -56,6 +56,14 @@ export enum RSVPStatus {
     Waitlisted = "waitlisted",
 }
 
+export interface RsvpSystemReview {
+    summary: string;
+    userObservations: string[];
+    eventObservations: string[];
+    rsvpObservations: string[];
+    systemStatus: "complete" | "needs-work" | "incomplete";
+}
+
 /*
 
 // ===== TYPE ALIASES =====
