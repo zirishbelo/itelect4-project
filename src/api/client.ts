@@ -4,6 +4,7 @@ import type {
     AuthReply,
     Event,
     NewRSVP,
+    RsvpSystemReview,
 } from "../types/index";
 import useAuthStore from "../store/authStore";
 
@@ -77,5 +78,11 @@ export function loginUser(body: {
     return request<AuthReply>("/api/auth/login", {
         method: "POST",
         body: JSON.stringify(body),
+    });
+}
+export function askAi(description: string): Promise<RsvpSystemReview> {
+    return request<RsvpSystemReview>("/api/ai", {
+        method: "POST",
+        body: JSON.stringify({ prompt: description }),
     });
 }
