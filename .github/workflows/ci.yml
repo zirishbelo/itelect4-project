@@ -26,5 +26,8 @@ jobs:
       # tests their own VITE_API_URL, and they never call the API.
       - run: npm test
 
+      # Keep the same lint check required for the final build locally.
+      - run: npm run lint
+
       # Type-check and build the same frontend that Vercel deploys.
       - run: npm run build
