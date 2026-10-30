@@ -14,9 +14,9 @@ const SYSTEM_STATUS_STYLE: Record<
     RsvpSystemReview["systemStatus"],
     string
 > = {
-    complete: "bg-green-100 text-green-800",
+    "complete": "bg-green-100 text-green-800",
     "needs-work": "bg-yellow-100 text-yellow-800",
-    incomplete: "bg-red-100 text-red-800",
+    "incomplete": "bg-red-100 text-red-800",
 };
 
 interface ObservationListProps {
